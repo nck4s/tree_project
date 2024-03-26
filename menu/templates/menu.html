@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
+    <ul>
+        {% for parent_item in parent_items %}
+            <li>{{ parent_item.name }}</li>
+            {% for child_item in parent_item.menuitem_set.all %}
+                <ul>
+                    <li>{{ child_item.name }}</li>
+                </ul>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</body>
+</html>
